@@ -1,0 +1,73 @@
+.login-container {
+    margin-top: 150px;
+}
+
+.loginform {
+    background-color: #f9fafc;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.loginform input {
+    border-radius: 10px;
+}
+
+.main-sidebar .logo .logo-lg {
+    display: block;
+}
+
+.main-sidebar .logo .logo-mini {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar-mini.sidebar-collapse .main-sidebar .logo>.logo-mini {
+        display: block;
+        margin-left: -15px;
+        margin-right: -15px;
+        font-size: 18px;
+    }
+    .sidebar-mini.sidebar-collapse .main-sidebar .logo>.logo-lg {
+        display: none;
+    }
+    #newOrderModal>.modal-dialog {
+        width: 900px;
+    }
+    #checkNTUModal>.modal-dialog {
+        width: 900px;
+    }
+}
+@media (min-width: 1500px){
+	table{
+		table-layout: fixed;
+		word-wrap: break-word;
+	}
+}
+
+
+}
+.logoutButton {
+    background: rgba(217, 92, 92, .95)
+}
+.box,
+.info-box {
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.dataTables_info {
+    margin-left: 11px;
+}
+.dataTables_length {
+    margin-left: 11px;
+    margin-top: 5px;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-selection .select2-selection--single,
+.select2-container--default .select2-selection--multiple {
+    border-radius: 4px;
+}
+.options {
+    min-width: 75px;
+}

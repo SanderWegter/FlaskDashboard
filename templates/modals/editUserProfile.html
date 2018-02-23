@@ -1,0 +1,50 @@
+<div class="modal fade in" id="editUserModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="" class="form-horizontal">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title editBoxTitle">Edit user</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edusername" class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="edusername" id="edusername" placeholder="Username" value='Username' disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edfirstname" class="col-sm-2 control-label">First name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="edfirstname" id="edfirstname" placeholder="First name" value='Firstname' disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edlastname" class="col-sm-2 control-label">Last name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="edlastname" id="edlastname" placeholder="Last name" value='Lastname' disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edpassword" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="edpassword" id="edpassword" placeholder="Change password (minimum 8 characters)" pattern=".{8,}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edemail" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="edemail" id="edemail" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value='Email' disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success pull-right" id="saveUser" data-dismiss="modal">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

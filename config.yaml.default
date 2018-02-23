@@ -1,0 +1,23 @@
+server: {
+  "ip": "0.0.0.0",
+  "port": 12345,
+  "debug": True,
+  "appKey": "CHANGETHIS",
+  "ssl": False,
+  "ssl_key": "",
+  "ssl_cert": ""
+}
+mysql: {
+  "host": "127.0.0.1",
+  "user": "",
+  "pass": "",
+  "port": 3306,
+  "db": ""
+}
+email: {
+  "from": "",
+  "username": "",
+  "password": "",
+  "smtp_host": "",
+  "smtp_port": 465
+}

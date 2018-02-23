@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> FlaskDashboard | {{ title }}</title>
+
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">	
+
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/AdminLTE.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/_all-skins.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/dataTables.bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/alertify.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+	<script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/alertify.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/dataTables.bootstrap.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/moment.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/datatable.moment.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/vendor/adminlte.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</head>
+
+<body class="skin-black-light sidebar-mini {% if session.username is not defined %} sidebar-collapse {% endif %}">
+	<div class="wrapper">
+		<header class="main-header">
+			<a href="/" class="logo">
+				<span class="logo-mini"><b>F</b>Dash</span>
+				<span class="logo-lg"><b>Flask</b>Dashboard</span>
+			</a>
+
+			{% if session.username%}
+			<nav class="navbar navbar-static-top">
+				<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+					<span class="sr-only">Toggle Navigation</span>
+				</a>
+
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<li>
+							<a onclick="editUser()" data-toggle='modal' data-target='#editUserModal' href="">User Profile</a>
+						</li>
+						<li>
+							<a class="logoutButton" href="{{ url_for('page_routes.logout') }}">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			{% endif %}
+		</header>
+		<aside class="main-sidebar">
+			<section class="sidebar">
+				<div class="user-panel">
+					<div class="pull-lef image" style="min-height: 50px;">
+						<center class="logo">
+							<img class="logo-lg" src="{{ url_for('static', filename='img/LogoFull.png') }}" width=100px>
+							<img class="logo-mini" src="{{ url_for('static', filename='img/LogoSmall.png') }}" width=50px>
+						</center>
+					</div>
+				</div>
+				<ul class="sidebar-menu">
+					{% if session.username %}
+						<li class="header">MAIN NAVIGATION</li>
+						{% for href, id, logo, caption, hasAdmin in navigation_bar %}
+							{% if hasAdmin and session.group == 'Admins' %}
+								<li>
+									<a href="{{ href|e }}">
+										<i class="{{ logo|e }}"></i> <span>{{ caption|e }}</span>
+									</a>
+								</li>
+							{% elif not hasAdmin %}
+								<li>
+									<a href="{{ href|e }}">
+										<i class="{{ logo|e }}"></i> <span>{{ caption|e }}</span>
+									</a>
+								</li>
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</section>
+		</aside>
+		<div class="content-wrapper">{{ active_page }}
+            {% block body %}{% endblock %}
+        </div>
+
+        {% if notification %}
+        <script>
+        	alertify.{{notification.type}}("{{ notification.message }}");
+        </script>
+        {% endif %}
+
+        <footer class="main-footer">
+        	<div class="pull-right hidden-xs">
+        		<b>Version</b> 1.1.0
+        	</div>
+        	<strong>
+        		<a href="https://example.com" target="_blank">FlaskDashboard</a>
+        	</strong>
+        </footer>
+	</div>
+
+	{% include 'modals/editUserProfile.html' %}
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<div class="modal fade in" id="addUserModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/internal/users/addUser" method="POST" class="form-horizontal" autocomplete="new-password">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Add user</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="addUsername" class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="addUsername" id="addUsername" placeholder="Username" required pattern=".{3,}" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addFirstname" class="col-sm-2 control-label">First name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="addFirstname" id="addFirstname" placeholder="First name" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addLastname" class="col-sm-2 control-label">Last name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="addLastname" id="addLastname" placeholder="Last name" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+    					<label for="addPassword" class="col-sm-2 control-label">Password</label>
+    					<div class="col-sm-10">
+    						<input type="password" class="form-control" name="addPassword" id="addPassword" placeholder="Password (minimum 8 characters)" required pattern=".{8,}" autocomplete="false">
+    					</div>
+    				</div>
+    				<div class="form-group">
+    					<label for="addEmail" class="col-sm-2 control-label">Email</label>
+    					<div class="col-sm-10">
+    						<input type="text" class="form-control" name="addEmail" id="addEmail" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="false">
+    					</div>
+    				</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-success pull-right" id="addUser" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

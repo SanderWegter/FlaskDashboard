@@ -1,0 +1,30 @@
+{% extends 'layout.html' %} 
+{% block body %}
+<section class="content">
+	<div class="container login-container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<img src="{{ url_for('static', filename='img/LogoFull.png') }}" width=400px>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 loginform">
+				<h2>Login</h2>
+				<form action="" method="POST">
+					<div class="input-group">
+                        <span class="input-group-addon" id="uname"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="username" id="user" aria-describedby="uname" placeholder="Username" autofocus>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="pwd"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" id="pass" name="password" aria-describedby="pwd" placeholder="Password">
+                    </div>
+                    <br>
+                    <input type="Submit" value="Login" class="btn btn-default btn-sm">
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
